@@ -7,7 +7,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 load_dotenv()
 
-# Langsmith Tracking Setup
+# Langsmith Tracking Setu
 if os.getenv("LANGCHAIN_API_KEY"):
     os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 if os.getenv("LANGCHAIN_PROJECT"):
