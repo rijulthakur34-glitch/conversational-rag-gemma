@@ -5,7 +5,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
 
 A highly advanced, full-stack **Retrieval-Augmented Generation (RAG)** application demonstrating the core capabilities of large language models (LLMs), semantic search, and stateful conversational memory.
-
+ 
 This project was built to showcase a deep, practical understanding of the modern AI engineering stack, specifically leveraging **LangChain** and **Transformer** architectures to build autonomous, context-aware AI assistants.
 
 ## 🌟 Key Technical Features
