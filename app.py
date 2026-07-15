@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from llm_utils import get_vectorstore, get_conversation_chain, get_general_conversation_chain
 from langchain_core.messages import HumanMessage, AIMessage
 
-load_dotenv()
+load_dotenv() 
 
 # Langsmith Tracking Setup
 if os.getenv("LANGCHAIN_API_KEY"):
