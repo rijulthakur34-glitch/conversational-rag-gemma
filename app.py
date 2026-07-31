@@ -60,7 +60,7 @@ with st.sidebar:
             st.warning("Please upload at least one PDF file first.")
     
     st.divider()
-    st.caption("Powered by LangChain, Ollama (Gemma), FAISS, and Streamlit.")
+    st.caption("Powered by LangChain, Groq (Gemma-2-9b), FAISS, and Streamlit.")
 
 # Display Chat History
 for message in st.session_state.chat_history:

@@ -1,5 +1,5 @@
 import os
-from langchain_community.llms import Ollama
+from langchain_groq import ChatGroq
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter 
@@ -7,6 +7,10 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_classic.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+
+def get_llm():
+    api_key = os.getenv("GROQ_API_KEY")
+    return ChatGroq(model_name="gemma2-9b-it", groq_api_key=api_key)
 
 def get_vectorstore(pdf_files):
     """Processes uploaded PDF files and returns a FAISS vectorstore."""
@@ -24,7 +28,7 @@ def get_vectorstore(pdf_files):
 
 def get_conversation_chain(vectorstore):
     """Creates a RAG chain that supports conversational memory."""
-    llm = Ollama(model="gemma:2b")
+    llm = get_llm()
     
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
     
@@ -71,7 +75,7 @@ def get_conversation_chain(vectorstore):
 
 def get_general_conversation_chain():
     """Creates a basic conversational chain without RAG for general questions."""
-    llm = Ollama(model="gemma:2b")
+    llm = get_llm()
     
     system_prompt = "You are a helpful, intelligent assistant."
     prompt = ChatPromptTemplate.from_messages(
@@ -84,10 +88,9 @@ def get_general_conversation_chain():
     
     # A simple chain that takes input and chat_history, and returns 'answer'
     # to match the dict output format of the retrieval chain
-    from langchain_core.runnables import RunnablePassthrough
-    
     def format_output(response):
-        return {"answer": response}
+        return {"answer": response.content if hasattr(response, 'content') else str(response)}
         
     chain = prompt | llm | format_output
     return chain
+
