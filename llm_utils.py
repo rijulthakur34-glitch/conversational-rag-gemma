@@ -15,7 +15,7 @@ def get_llm():
         api_key = st.secrets["GROQ_API_KEY"]
     if not api_key:
         raise ValueError("GROQ_API_KEY not found. Please set it in Streamlit Secrets or Environment Variables.")
-    return ChatGroq(model_name="gemma2-9b-it", groq_api_key=api_key)
+    return ChatGroq(model_name="llama-3.3-70b-versatile", groq_api_key=api_key)
 
 def get_vectorstore(pdf_files):
     """Processes uploaded PDF files and returns a FAISS vectorstore."""
