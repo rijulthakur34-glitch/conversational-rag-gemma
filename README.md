@@ -1,8 +1,11 @@
 # 🧠 Conversational RAG Assistant with Gemma
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Streamlit_App-ff4b4b?style=for-the-badge)](https://conversational-rag-gemma-ctph3tf4jtywnkfhdsqvbx.streamlit.app)
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
 ![LangChain](https://img.shields.io/badge/LangChain-Enabled-green?logo=chainlink)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
+
+> 🔗 **Live Application URL:** [https://conversational-rag-gemma-ctph3tf4jtywnkfhdsqvbx.streamlit.app](https://conversational-rag-gemma-ctph3tf4jtywnkfhdsqvbx.streamlit.app)
 
 A highly advanced, full-stack **Retrieval-Augmented Generation (RAG)** application demonstrating the core capabilities of large language models (LLMs), semantic search, and stateful conversational memory.
  
