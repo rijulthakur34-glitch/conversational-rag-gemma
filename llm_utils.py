@@ -9,7 +9,12 @@ from langchain_classic.chains import create_history_aware_retriever, create_retr
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 
 def get_llm():
+    import streamlit as st
     api_key = os.getenv("GROQ_API_KEY")
+    if not api_key and hasattr(st, "secrets") and "GROQ_API_KEY" in st.secrets:
+        api_key = st.secrets["GROQ_API_KEY"]
+    if not api_key:
+        raise ValueError("GROQ_API_KEY not found. Please set it in Streamlit Secrets or Environment Variables.")
     return ChatGroq(model_name="gemma2-9b-it", groq_api_key=api_key)
 
 def get_vectorstore(pdf_files):
